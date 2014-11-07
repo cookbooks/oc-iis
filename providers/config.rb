@@ -31,6 +31,13 @@ action :config do
   Chef::Log.info("IIS Config command run")
 end
 
+action :unlock do
+  cmd = "#{appcmd} unlock config #{@new_resource.cfg_cmd}"
+  Chef::Log.debug(cmd)
+  shell_out!(cmd, :returns => @new_resource.returns)
+  Chef::Log.info("IIS Config command run")
+end
+
 private
 def appcmd
   @appcmd ||= begin

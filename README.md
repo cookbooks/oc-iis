@@ -90,6 +90,7 @@ Runs a config command on your IIS instance.
 ### Actions
 
 - :config: - Runs the configuration command
+- :unlock: - Runs the configuration command to unlock a config section
 
 ### Attribute Parameters
 
@@ -102,6 +103,11 @@ Runs a config command on your IIS instance.
         action :config
     end
 
+    #Unlocks system.webserver/handlers section
+    iis_config "/section:system.webserver/handlers" do
+        action :config
+    end
+	
     #Loads an array of commands from the node
     cfg_cmds = node['iis']['cfg_cmd']
     cfg_cmds.each do |cmd|

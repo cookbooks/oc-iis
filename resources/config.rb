@@ -18,6 +18,6 @@
 # limitations under the License.
 #
 
-actions :config
+actions :config, :unlock
 
 attribute :cfg_cmd, :kind_of => String, :name_attribute => true
